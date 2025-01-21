@@ -15,7 +15,6 @@ export default function SessionPage() {
 	}
 
 	function handleFinishedBooking() {
-		console.log('Finsihed booking!');
 		setIsBooking(false);
 	}
 
