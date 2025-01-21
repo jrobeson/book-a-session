@@ -18,17 +18,18 @@ function isButtonLinkProps(props: ButtonProps | LinkProps): props is ButtonLinkP
 }
 
 export default function Button(props: ButtonProps | ButtonLinkProps) {
-	const className = `button ${props.textOnly ? 'button--text-only' : ''}`;
 	if (isButtonLinkProps(props)) {
+		const { to, children, textOnly, ...otherProps } = props;
 		return (
-			<Link {...props} className={className} to={props.to}>
-				{props.children}
+			<Link className={`button ${textOnly ? 'button--text-only' : ''}`} to={to} {...otherProps}>
+				{children}
 			</Link>
 		);
 	}
+	const { children, textOnly, ...otherProps } = props;
 	return (
-		<button className={className} {...props}>
-			{props.children}
+		<button className={`button ${textOnly ? 'button--text-only' : ''}`} {...otherProps}>
+			{children}
 		</button>
 	);
 }
