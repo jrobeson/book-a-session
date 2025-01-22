@@ -28,7 +28,7 @@ export default function SessionPage() {
 
 	return (
 		<main id='session-page'>
-			{isBooking && <BookSession onClose={handleFinishedBooking} />}
+			{isBooking && <BookSession session={loadedSession} onClose={handleFinishedBooking} />}
 			<article>
 				<header>
 					<img src={loadedSession.image} alt={loadedSession.title} />

@@ -1,12 +1,12 @@
 import Modal, { type ModalHandle } from '../UI/Modal';
-import { SESSIONS } from '../../dummy-sessions';
 import Button from '../UI/Button';
 import UpcomingSession from './UpcomingSession';
 import { useEffect, useRef } from 'react';
-let sessions = SESSIONS.splice(0, 3);
+import { useSessionsContext } from '../../store/sessions-context';
 
 export default function UpcomingSessions({ onClose }: { onClose: () => void }) {
 	const modalRef = useRef<ModalHandle>(null);
+	const { sessions } = useSessionsContext();
 	const sessionItems = sessions.map((session) => <UpcomingSession key={session.id} {...session} />);
 	useEffect(() => {
 		if (modalRef.current) {

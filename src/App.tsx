@@ -1,5 +1,4 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-
 import HomePage from './pages/Home.tsx';
 import SessionsPage from './pages/Sessions.tsx';
 import SessionPage from './pages/Session.tsx';

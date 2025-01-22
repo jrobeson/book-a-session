@@ -1,3 +1,4 @@
+import { useSessionsContext } from '../../store/sessions-context';
 import Button from '../UI/Button';
 
 type UpcomingSessionProps = {
@@ -7,7 +8,8 @@ type UpcomingSessionProps = {
 	date: string;
 };
 
-export default function UpcomingSession({ title, summary, date }: UpcomingSessionProps) {
+export default function UpcomingSession({ id, title, summary, date }: UpcomingSessionProps) {
+	const { cancelSession } = useSessionsContext();
 	return (
 		<article className='upcoming-session'>
 			<li>
@@ -22,7 +24,9 @@ export default function UpcomingSession({ title, summary, date }: UpcomingSessio
 				</time>
 			</li>
 			<p className='actions'>
-				<Button textOnly={true}>Cancel</Button>
+				<Button textOnly={true} onClick={() => cancelSession(id)}>
+					Cancel
+				</Button>
 			</p>
 		</article>
 	);
